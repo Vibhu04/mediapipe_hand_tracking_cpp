@@ -9,9 +9,9 @@
 
 #define CLASS_ID        0
 #define MIN_THRESHOLD   0.75f
-#define DETECTION_SIZE  128
-#define NUM_BOXES       896
-#define NUM_COORD       16
+#define DETECTION_SIZE  192
+#define NUM_BOXES       2944
+#define NUM_COORD       18
 #define NUM_SIZES       2
 
 namespace my {

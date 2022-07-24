@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-#define FACE_LANDMARKS 468
+#define FACE_LANDMARKS 21
 /*
 Helper function
 */
@@ -16,10 +16,10 @@ bool __isIndexValid(int idx) {
 }
 
 
-my::FaceLandmark::FaceLandmark(std::string modelPath):
+my::FaceLandmark::FaceLandmark(std::string modelPath) :
     FaceDetection(modelPath),
-    m_landmarkModel(modelPath + std::string("/face_landmark.tflite"))
-    {}
+    m_landmarkModel(modelPath + std::string("/hand_landmark_full.tflite")) // Just change the model path
+{}
 
 
 void my::FaceLandmark::runInference() {
@@ -39,9 +39,12 @@ cv::Point my::FaceLandmark::getFaceLandmarkAt(int index) const {
 
         float _x = m_landmarkModel.getOutputData()[index * 3];
         float _y = m_landmarkModel.getOutputData()[index * 3 + 1];
+        //float _z = m_landmarkModel.getOutputData()[index * 3 + 2];
 
         int x = (int)(_x / m_landmarkModel.getInputShape()[2] * roi.width) + roi.x;
         int y = (int)(_y / m_landmarkModel.getInputShape()[1] * roi.height) + roi.y;
+
+        //std::cout << "z: " << _z << std::endl;
 
         return cv::Point(x,y);
     }
