@@ -1,13 +1,11 @@
-﻿# Face + Iris Landmarks Real-time Detection in C++ (OpenCV + Tensorflow Lite)
+﻿# Real-time Hand Landmark detection in C++ (OpenCV + Tensorflow Lite)
 
 ## (Note: This guide is for Windows OS, but the code should work fine on other OS, too)
 
 This project runs on Mediapipe TFLite models without using Mediapipe framework. It can run at **90+ FPS** on **CPU**. 
 I perform the test on an AMD Ryzen 7 3700U Pro and the app takes about 5% CPU while running.
 For more information:
-* Face detection: https://google.github.io/mediapipe/solutions/face_detection.html
-* Face landmarks: https://google.github.io/mediapipe/solutions/face_mesh.html
-* Iris landmarks: https://google.github.io/mediapipe/solutions/iris.html
+* Hand landmarks & Palm detection: https://google.github.io/mediapipe/solutions/hands.html
 
 ## :warning: Why not using GPU ?
 Because Tensorflow Lite only supports GPU delegate for Android and IOS.
